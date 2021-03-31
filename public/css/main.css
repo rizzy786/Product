@@ -1,0 +1,90 @@
+@CHARSET "UTF-8";
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    background-color:#f2ead3;
+    
+}
+
+.item{
+    display:flex;
+    flex-direction:column;
+    padding:10px;
+    margin:20px;
+    border:2px solid #73cc4e;
+    background-color:#f2ead3;
+    height:400px;
+    width:250px;
+    align-items:center;
+}
+
+.wrapper{
+    
+    height:200px;
+    width:300px;
+    padding:10px;
+    margin:20px;
+    border:1px solid none;
+    background-color:#fff;
+}
+
+.wrapper input[type=text]{
+    margin-top:5px;
+    height:30px;
+}
+
+.wrapper input[type=text],
+textarea{
+    width:100%;
+    margin-bottom:5px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
