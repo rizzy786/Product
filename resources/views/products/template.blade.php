@@ -1,6 +1,6 @@
 <body>
 
-<div class = "container">
+<div>
     <div class = "item">
          <p class = "type"><b>{{$product->productType->type}}</b></p>
          <img src = "no_image.png" width = 75% />
@@ -9,7 +9,6 @@
          <p>{{ $product->product_processor}}</p>
          <p>{{ $product->product_storage}}</p>
          <p><b>£{{ $product->price}}</b></p>    
-        <div>
             @if(Route::current()->getName()=='product-index')
                     <button value="{{$product->id}}" class = "select-product">SELECT</button>
                     @can('delete-product')
