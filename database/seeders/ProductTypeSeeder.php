@@ -15,9 +15,9 @@ class ProductTypeSeeder extends Seeder
     public function run()
     {
         $producttypes = [
-            'Book',
-            'CD',
-            'Game',
+            'Phone',
+            'Laptop',
+            'Desktop',
         ];
         
         foreach($producttypes as $producttype) {

@@ -19,7 +19,9 @@ class CreateProductsTable extends Migration
             $table->unsignedBigInteger('product_type_id');
             $table->string('product_name', 250);
             $table->unsignedBigInteger('price');
-            
+            $table->string('product_screen_size');
+            $table->string('product_processor');
+            $table->string('product_storage');
             $table->timestamps();
         });
         
