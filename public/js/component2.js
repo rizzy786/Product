@@ -85,6 +85,9 @@ async function deleteProductByID(id) {
 async function addNewProduct() {
     var producttype =  document.getElementById('producttype').value;
     var title = document.getElementById('title').value;
+    var screen_size = document.getElementById('screen_size').value;
+    var processor = document.getElementById('processor').value;
+    var storage = document.getElementById('storage').value;
     var price = document.getElementById('price').value;
     
     console.log('a');
@@ -94,7 +97,8 @@ async function addNewProduct() {
 
     try{
         const response = await axios.post('/product/create',
-            {producttype:producttype, title:title, price:price}
+            {producttype:producttype, title:title, screen_size:screen_size, processor:processor, storage:storage,  price:price}
+
         );
 //        if(response.data.msg==='success') {
 //            console.log("success");
