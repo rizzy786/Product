@@ -19,6 +19,12 @@ window.onload = function() {
         if (e.target.matches('button.edit-product')){
             editProductByID(e.target.value);
         }
+        if (e.target.matches('button.home')){
+            window.location= "/home";
+        }
+        if (e.target.matches('button.product')){
+            window.location= "/product";
+        }
     });
 }
 

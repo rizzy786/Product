@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PurchaseController;
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,6 +23,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
+Route::get('/home', [HomeController::class, 'index']);
+
 Route::get('/product', [ProductController::class, 'index'])->name('product-index');
 
 Route::get('/product/{id}', [ProductController::class, 'show'])->name('product-show');
@@ -33,3 +36,4 @@ Route::get('/product/{id}/edit', [ProductController::class, 'edit'])->name('prod
 Route::delete('/product/{id}', [ProductController::class, 'destroy']);
 
 Route::post('/product/create', [ProductController::class, 'store']);
+

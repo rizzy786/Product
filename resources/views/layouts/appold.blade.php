@@ -21,17 +21,17 @@
         </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-             <li class="nav-item active">
-                 <a class="nav-link" href="home">Home <span class="sr-only">(current)</span></a>
+             <li class="nav-item">
+                 <button style="background:none; border:none" class="nav-link home">Home <span class="sr-only">(current)</span></button>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="product">Products</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="features">Features</a>
+                <button style="background:none; border:none" class="nav-link product" href="product">Products</button>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="aboutus">About Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="cart">Cart</a>
             </li>
            </ul>
         </div>
