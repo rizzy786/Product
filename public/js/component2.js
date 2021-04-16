@@ -25,6 +25,11 @@ window.onload = function() {
         if (e.target.matches('button.product')){
             window.location= "/product";
         }
+           if (e.target.matches('button.cart')){
+            window.location= "/cart";
+        }
+        
+        
     });
 }
 
@@ -34,7 +39,7 @@ async function purchaseProductByID(id) {
             {id:id}
         );
         if(response.data.msg==='success'){
-            alert("Product Added");
+            alert("Product Added to Cart");
             window.location="/product/" +id;
         }
         else alert ("Error Purchasing Product");

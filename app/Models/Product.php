@@ -15,7 +15,8 @@ class Product extends Model
         'product_screen_size',
         'product_processor',
         'product_storage',
-        'price'
+        'price',
+        'imagename'
         ];
 
     public function productType()

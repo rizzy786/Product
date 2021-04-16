@@ -25,13 +25,13 @@
                  <button style="background:none; border:none" class="nav-link home">Home <span class="sr-only">(current)</span></button>
             </li>
             <li class="nav-item">
-                <button style="background:none; border:none" class="nav-link product" href="product">Products</button>
+                <button style="background:none; border:none" class="nav-link product">Products</button>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="aboutus">About Us</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="cart">Cart</a>
+                <button style="background:none; border:none" class="nav-link cart">Cart</button>
             </li>
            </ul>
         </div>
@@ -41,7 +41,7 @@
       <input type="text" placeholder="Search.." name="search">
       <button type="submit"><i class="fa fa-search"></i></button>
     </form>
-  </div>
+     </div>
   
     </nav>
    <!-- 

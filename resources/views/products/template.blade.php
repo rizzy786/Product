@@ -3,7 +3,7 @@
 <div>
     <div class = "item">
          <p class = "type"><b>{{$product->productType->type}}</b></p>
-         <img src = "no_image.png" width = "60%" />
+         <img src = "{{ asset('image/' . $product->imagename) }}" width="155px"/>
          <p><b>{{ $product->product_name}}</b></p>
          <p>{{ $product->product_screen_size}}</p>
          <p>{{ $product->product_processor}}</p>
@@ -18,7 +18,7 @@
                     
             @if(Route::current()->getName()=='product-show')
                 @can('purchase-product', $product)
-                    <button value="{{$product->id}}" class = "purchase-product">PURCHASE</button>    
+                    <button value="{{$product->id}}" class = "purchase-product">ADD TO CART</button>    
                 @endcan  
                 @can('edit-product')
                     <button value="{{$product->id}}" class = "edit-product">EDIT</button>
