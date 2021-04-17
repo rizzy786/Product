@@ -26,6 +26,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::get('/home', [HomeController::class, 'index']);
 
+Route::get('/add-to-cart/{id}', [CartController::class, 'addToCart']);
+
 Route::get('/cart', [CartController::class, 'index']);
 
 Route::get('/product', [ProductController::class, 'index'])->name('product-index');

@@ -13,9 +13,6 @@ window.onload = function() {
         if (e.target.matches('button.add-product')) {
             addNewProduct();
         }
-        if (e.target.matches('button.purchase-product')) {
-            purchaseProductByID(e.target.value);
-        }
         if (e.target.matches('button.edit-product')){
             editProductByID(e.target.value);
         }
@@ -29,20 +26,22 @@ window.onload = function() {
             window.location= "/cart";
         }
         
+        if (e.target.matches('button.purchase-product')){
+            addToCart(e.target.value);
+        }
         
     });
 }
 
-async function purchaseProductByID(id) {
+async function addToCart(id) {
     try{
-        const response = await axios.post('/purchase/' + id,
-            {id:id}
-        );
-        if(response.data.msg==='success'){
-            alert("Product Added to Cart");
-            window.location="/product/" +id;
-        }
-        else alert ("Error Purchasing Product");
+        const response = await axios.get('/add-to-cart/' + id, {id:id});
+
+//        if(response.data.msg==='success'){
+           alert("Product Added to Cart");
+//            window.location="/product/" +id;
+//        }
+//        else alert ("Error Purchasing Product");
     
         }
         catch (error){

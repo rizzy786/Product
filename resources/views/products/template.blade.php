@@ -3,7 +3,7 @@
 <div>
     <div class = "item">
          <p class = "type"><b>{{$product->productType->type}}</b></p>
-         <img src = "{{ asset('image/' . $product->imagename) }}" width="155px"/>
+         <img src = "{{ asset('image/' . $product->imagename) }}" width="180px"/>
          <p><b>{{ $product->product_name}}</b></p>
          <p>{{ $product->product_screen_size}}</p>
          <p>{{ $product->product_processor}}</p>

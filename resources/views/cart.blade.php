@@ -1,20 +1,32 @@
 @extends('layouts.appold')
 @section('content') 
 
-    <table class="table">
+    <table id="cart" class="table">
         <thead>
-            <tr>
-                <th></th>
-                <th>Product</th>
-                <th>Quantity</th>
-                <th>Price</th>
-                <th></th>
-                <th></th>
-           </tr>
+        <tr>
+            <th style="width:50%">Product</th>
+            <th style="width:10%">Price</th>
+            <th style="width:8%">Quantity</th>
+            <th style="width:22%">Subtotal</th>
+        </tr>
         </thead>
+        <tbody>
+        @if(session('cart'))
+            @foreach(session('cart') as $id => $details)
+              <tr>
+                <td>
+                  {{ $details['name'] }}
+                  <div class="row">
+                    <div class="col-sm-3"><img src="{{ asset('image/' .$details['imagename']) }}" width="100"/></div>
+                  </div>
+                </td>
+                <td>£{{ $details['price'] }}</td>
+                <td>{{ $details['quantity'] }}</td>
+                <td>£{{ $details['quantity'] * $details['price']}}</td>
+              </tr>
+            @endforeach
+        @endif
+        </tbody>
     </table>
-     
-            
-    <h3>You have no items in your shopping cart</h3>
-    <a href="{{ url('/product') }}" class="btn btn-primary btn-lg">Continue Shopping</a>
+
 @endsection
