@@ -1,4 +1,3 @@
-
 window.onload = function() {
     document.addEventListener('click', e => {
         if (e.target.matches('button.select-product')) {
@@ -55,6 +54,11 @@ function  getProductByID(id) {
 
 function editProductByID(id){
     window.location= "/product/" + id + "/edit";
+}
+
+async function quantityChange(id, value){
+       const response = await axios.post('/editcart', {productid:id, quantity:value});
+            window.location= "/cart";
 }
 
 async function updateProductByID(id) {

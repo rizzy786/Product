@@ -21,7 +21,9 @@
                   </div>
                 </td>
                 <td>£{{ $details['price'] }}</td>
-                <td>{{ $details['quantity'] }}</td>
+                <td>
+                <input type="number" min=1 onchange="quantityChange({{ $id }}, this.value)" class="form-control" id="quantity" value="{{ $details['quantity'] }}">
+                </td>     
                 <td>£{{ $details['quantity'] * $details['price']}}</td>
               </tr>
             @endforeach
