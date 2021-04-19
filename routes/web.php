@@ -5,6 +5,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,6 +31,8 @@ Route::get('/cart', [CartController::class, 'index']);
 
 Route::get('/add-to-cart/{id}', [CartController::class, 'addToCart']);
 Route::post('/editcart', [CartController::class, 'editCart']);
+
+Route::get('/checkout', [CheckoutController::class, 'index']);
 
 Route::get('/product', [ProductController::class, 'index'])->name('product-index');
 
