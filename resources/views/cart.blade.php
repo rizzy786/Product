@@ -43,7 +43,7 @@
                         <td class="table-image"></td>
                         <td style="padding: 40px;"></td>
                         <td class="small-caps table-bg" style="text-align: right">Your Total</td>
-                        <td class="table-bg">£{{ $details['price'] }}</td>
+                        <td class="table-bg"></td>
                         <td class="column-spacer"></td>
                         
              </tr>

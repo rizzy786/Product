@@ -61,7 +61,7 @@
                     </div>
                     <div class="spacer"></div>
 
-                    <button type="submit" id="complete-order" class="button-primary full-width">Complete Order</button>
+                    <button type="submit" id="complete-order" class="btn btn-success btn-lg">Complete Order</button>
 
             </form>
 
