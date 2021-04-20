@@ -28,7 +28,7 @@
                 <button style="background:none; border:none" class="nav-link product">Products</button>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="aboutus">About Us</a>
+                <button style="background:none; border:none" class="nav-link aboutus">About Us</button>
             </li>
             <li class="nav-item">
                 <button style="background:none; border:none" class="nav-link cart">Cart</button>

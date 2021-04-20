@@ -21,6 +21,9 @@ window.onload = function() {
         if (e.target.matches('button.product')){
             window.location= "/product";
         }
+        if (e.target.matches('button.aboutus')){
+            window.location= "/aboutus";
+        }
         if (e.target.matches('button.cart')){
             window.location= "/cart";
         }
