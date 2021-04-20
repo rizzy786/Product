@@ -21,14 +21,17 @@ window.onload = function() {
         if (e.target.matches('button.product')){
             window.location= "/product";
         }
-           if (e.target.matches('button.cart')){
+        if (e.target.matches('button.cart')){
             window.location= "/cart";
         }
         
         if (e.target.matches('button.purchase-product')){
             addToCart(e.target.value);
         }
-        
+        if (e.target.matches('button.delete-item')){
+            deleteFromCart(e.target.value);
+    }
+
     });
 }
 
@@ -47,6 +50,20 @@ async function addToCart(id) {
             console.error(error);
         }       
     }
+    
+ async function deleteFromCart(id){
+      try{
+        const response = await axios.delete('/cart/'+id, {id:id});
+//        if(response.data.msg==='success') {
+//            console.log("success");
+            window.location= "/cart";
+//        }
+//        else console.error("some error");
+    }
+    catch (error) {
+        console.error(error);
+    }
+}
 
 function  getProductByID(id) {
     window.location= "/product/" + id;

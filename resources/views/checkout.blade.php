@@ -1,6 +1,6 @@
 @extends('layouts.appold')
 @section('content') 
-
+<div>
 <h2>Billing Details</h2>
 
      <form action="" method="POST" id="">
@@ -64,6 +64,5 @@
                     <button type="submit" id="complete-order" class="btn btn-success btn-lg">Complete Order</button>
 
             </form>
-
+</div>
 @endsection
-

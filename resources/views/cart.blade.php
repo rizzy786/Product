@@ -1,6 +1,6 @@
 @extends('layouts.appold')
 @section('content') 
-
+@can('view-cart')
     <table id="cart" class="table">
         <thead>
         <tr>
@@ -13,6 +13,7 @@
         </tr>
         </thead>
         <tbody>
+        <?php $yourtotal=0; ?>
         @if(session('cart'))
             @foreach(session('cart') as $id => $details)
               <tr>
@@ -25,10 +26,9 @@
                   {{ $details['name'] }}
                 </td>
                
-                <td> 
-                    <input type="hidden" name="_method" value="DELETE">
-                    <input type="submit" class="btn btn-danger btn-sm" value="Remove">
-                </td>
+               <td>
+               <button value="{{ $id }}" class = "btn btn-danger btn-sm delete-item">Remove</button>
+               </td>
                 <td>
                     £{{ $details['price'] }}
                 </td>
@@ -37,15 +37,16 @@
                 </td>     
                 <td>£{{ $details['quantity'] * $details['price']}}</td>
               </tr>
+              <?php $yourtotal = $yourtotal + $details['quantity'] * $details['price']; ?>
             @endforeach
         @endif
              <tr class="border-bottom">
-                        <td class="table-image"></td>
+                        <td></td>
                         <td style="padding: 40px;"></td>
-                        <td class="small-caps table-bg" style="text-align: right">Your Total</td>
-                        <td class="table-bg"></td>
-                        <td class="column-spacer"></td>
-                        
+                        <td></td>
+                        <td></td>
+                        <td><b>Your Total</b></td>
+                        <td>£{{ $yourtotal }}</td>
              </tr>
         </tbody>
     </table>
@@ -53,4 +54,5 @@
     <a href="{{ url('/product') }}" class="btn btn-primary btn-lg">Continue Shopping</a> &nbsp;
     <a href="{{ url('/checkout') }}" class="btn btn-success btn-lg">Proceed to Checkout</a>
 
+@endcan
 @endsection

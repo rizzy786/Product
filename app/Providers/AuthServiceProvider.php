@@ -50,5 +50,8 @@ class AuthServiceProvider extends ServiceProvider
             return $user->is_admin; //returns true if admin
         });
         
+        Gate::define('view-cart', function (User $user){
+            return !$user->is_admin; //returns true if admin
+        });   
     }
 }
