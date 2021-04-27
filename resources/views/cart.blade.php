@@ -1,6 +1,8 @@
 @extends('layouts.appold')
 @section('content') 
 @can('view-cart')
+
+
     <table id="cart" class="table">
         <thead>
         <tr>

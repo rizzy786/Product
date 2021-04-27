@@ -1,5 +1,8 @@
 @extends('layouts.appold')
 @section('content') 
+
+<script src="https://js.stripe.com/v3/"></script>
+
 <div>
 
 <h2>Billing Details</h2>
@@ -7,22 +10,22 @@
      <form action="" method="POST" id="">
         <div class="form-group">
             <label for="email">Email Address</label>
-            <input type="email" class="form-control" id="email" name="email" value="" required>
+            <input type="email" class="form-control" id="email" name="email" value="" >
         
 
         <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" class="form-control" id="name" name="name" value="" required>
+            <input type="text" class="form-control" id="name" name="name" value="" >
         </div>
         <div class="form-group">
             <label for="address">Address</label>
-            <input type="text" class="form-control" id="address" name="address" value="" required>
+            <input type="text" class="form-control" id="address" name="address" value="" >
         </div>
 
         <div class="half-form">
             <div class="form-group">
                 <label for="city">City</label>
-                <input type="text" class="form-control" id="city" name="city" value="" required>
+                <input type="text" class="form-control" id="city" name="city" value="" >
             </div>
             <div class="form-group">
                 <label for="county">County (optional)</label>
@@ -34,11 +37,11 @@
         <div class="half-form">
             <div class="form-group">
                 <label for="postalcode">Postal Code</label>
-                <input type="text" class="form-control" id="postalcode" name="postalcode" value="" required>
+                <input type="text" class="form-control" id="postalcode" name="postalcode" value="" >
             </div>
         <div class="form-group">
                 <label for="phone">Phone</label>
-                <input type="text" class="form-control" id="phone" name="phone" value="" required>
+                <input type="text" class="form-control" id="phone" name="phone" value="">
             </div>
         </div> <!-- end half-form -->
 
@@ -60,6 +63,7 @@
                         <!-- Used to display form errors -->
                         <div id="card-errors" role="alert"></div>
                     </div>
+                    
                     <div class="spacer"></div>
 
                     <button type="submit" id="complete-order" class="btn btn-success btn-lg">Complete Order</button>
@@ -98,4 +102,45 @@
     </div>
 
 
+
+        <script src="https://js.braintreegateway.com/web/dropin/1.13.0/js/dropin.min.js"></script>
+
+    <script>
+        (function(){
+            // Create a Stripe client
+            var stripe = Stripe('pk_test_51Ikcm5A72szxMj3cTcaLTeEGH5mJ49L9tmeHcweMnyStgElYBpKZN4OFQjFyK303yYuQOTv8Q8i15LQUmfOH1RRf00lcoEUWwX');
+
+            // Create an instance of Elements
+            var elements = stripe.elements();
+
+            // Custom styling can be passed to options when creating an Element.
+            // (Note that this demo uses a wider set of styles than the guide below.)
+            var style = {
+              base: {
+                color: '#32325d',
+                lineHeight: '18px',
+                fontFamily: '"Roboto", Helvetica Neue", Helvetica, sans-serif',
+                fontSmoothing: 'antialiased',
+                fontSize: '16px',
+                '::placeholder': {
+                  color: '#aab7c4'
+                }
+              },
+              invalid: {
+                color: '#fa755a',
+                iconColor: '#fa755a'
+              }
+            };
+
+            // Create an instance of the card Element
+            var card = elements.create('card', {
+                style: style,
+                hidePostalCode: true
+            });
+
+            // Add an instance of the card Element into the `card-element` <div>
+            card.mount('#card-element');
+        })();
+    </script>
+ 
 @endsection
