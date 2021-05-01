@@ -39,10 +39,7 @@ Route::delete('/cart/{id}', [CartController::class, 'destroy']);
 Route::get('/checkout', [CheckoutController::class, 'index']);
 
 Route::get('/product', [ProductController::class, 'index'])->name('product-index');
-
 Route::get('/product/{id}', [ProductController::class, 'show'])->name('product-show');
-
-Route::post('/purchase/{id}', [PurchaseController::class, 'store']);
 
 Route::get('/product/{id}/edit', [ProductController::class, 'edit'])->name('product-edit')/*->middleware('auth','checkrole:admin')*/;
 
@@ -50,3 +47,4 @@ Route::delete('/product/{id}', [ProductController::class, 'destroy']);
 
 Route::post('/product/create', [ProductController::class, 'store']);
 
+Route::post('/purchase/{id}', [PurchaseController::class, 'store']);

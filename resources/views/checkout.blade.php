@@ -7,7 +7,7 @@
 
 <h2>Billing Details</h2>
 <div class="checkout-section">
-     <form action="" method="POST" id="">
+     <form action="" id="payment-form">
         <div class="form-group">
             <label for="email">Email Address</label>
             <input type="email" class="form-control" id="email" name="email" value="" >
@@ -74,25 +74,31 @@
             <div class="checkout-table-container">
                 <h2>Your Order</h2>
                 <div class="checkout-table">
+        <?php $yourtotal=0; ?>
+
+        @if(session('cart'))
+            @foreach(session('cart') as $id => $details)
                     <div class="checkout-table-row">
                         <div class="checkout-table-row-left">
-                            <img src="https://laravelecommerceexample.ca/storage/products/dummy/laptop-1.jpg" alt="item" class="checkout-table-img">
+                            <img src="{{ asset('image/' .$details['imagename']) }}" alt="item" class="checkout-table-img">
                             <div class="checkout-item-details">
-                                <div class="checkout-table-item">Item: </div>
-                                <div class="checkout-table-description">Description: </div>
-                                <div class="checkout-table-price">Price: </div>
+                                <div class="checkout-table-item">{{ $details['name'] }}</div>
+                                <div class="checkout-table-price">Price: £{{ $details['price'] }}</div>
                             </div>
                         </div> <!-- end checkout-table -->
 
                         <div class="checkout-table-row-right">
-                            <div class="checkout-table-quantity">1</div>
+                            <div class="checkout-table-quantity">{{ $details['quantity'] }}</div>
                         </div>
                     </div> <!-- end checkout-table-row -->
+                    <?php $yourtotal = $yourtotal + $details['quantity'] * $details['price']; ?>
+            @endforeach
+        @endif
                     
                 </div> <!-- end checkout-table -->
 
                     <div class="checkout-totals-right">                 
-                        <span class="checkout-totals-total">Total: $2244.08</span>
+                        <span class="checkout-totals-total">Total: £{{ $yourtotal }}</span>
 
                     </div>
                 </div> <!-- end checkout-totals -->
@@ -140,6 +146,57 @@
 
             // Add an instance of the card Element into the `card-element` <div>
             card.mount('#card-element');
+                        // Handle real-time validation errors from the card Element.
+            card.addEventListener('change', function(event) {
+              var displayError = document.getElementById('card-errors');
+              if (event.error) {
+                displayError.textContent = event.error.message;
+              } else {
+                displayError.textContent = '';
+              }
+            });
+
+            // Handle form submission
+            var form = document.getElementById('payment-form');
+            form.addEventListener('submit', function(event) {
+              event.preventDefault();
+
+              // Disable the submit button to prevent repeated clicks
+              document.getElementById('complete-order').disabled = true;
+
+              
+
+              stripe.createToken(card, options).then(function(result) {
+                if (result.error) {
+                  // Inform the user if there was an error
+                  var errorElement = document.getElementById('card-errors');
+                  errorElement.textContent = result.error.message;
+
+                  // Enable the submit button
+                  document.getElementById('complete-order').disabled = false;
+                } else {
+                  // Send the token to your server
+                  stripeTokenHandler(result.token);
+                }
+              });
+            });
+
+            function stripeTokenHandler(token) {
+              // Insert the token ID into the form so it gets submitted to the server
+              var form = document.getElementById('payment-form');
+              var hiddenInput = document.createElement('input');
+              hiddenInput.setAttribute('type', 'hidden');
+              hiddenInput.setAttribute('name', 'stripeToken');
+              hiddenInput.setAttribute('value', token.id);
+              form.appendChild(hiddenInput);
+
+              // Submit the form
+              form.submit();
+            }
+
+            
+            
+            
         })();
     </script>
  
