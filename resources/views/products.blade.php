@@ -1,20 +1,10 @@
 @extends('layouts.appold')
 @section('content') 
 
-    @if(Route::current()->getName()=='product-index' || Route::current()->getName()=='product-show')
-    @forelse ($products as $product)
-      @include ('products.template', ['products'=>$products])
-    @empty
-    <p>There are no products to display</p>
-    @endforelse
-    @else
-      @foreach ($products as $product)
-        @include ('products.template-edit', ['products'=>$products])
-      @endforeach
-    @endif
-            @can('add-product')
+    @can('add-product')
             @if(Route::current()->getName()=='product-index')
             <div class = "wrapper">
+            <h4>Add new Product</h4><br>
                     <label for = "product">Product Type:</label>
                      <select id = "producttype" name = "product">
                        <option value = "1">Phone</option>
@@ -27,10 +17,24 @@
                      <input type = "text" class = "processor" id = "processor" placeholder = "Processor" name = "processor">
                      <input type = "text" class = "storage" id = "storage" placeholder = "Storage" name = "storage">
                      <input type = "text" class = "price" id = "price" placeholder = "Price" name = "price">
+                     
                     <button class = "add-product">ADD</button>
                     
             </div>
             @endif
             @endcan
 
+    
+    @if(Route::current()->getName()=='product-index' || Route::current()->getName()=='product-show')
+    @forelse ($products as $product)
+      @include ('products.template', ['products'=>$products])
+    @empty
+    <p>There are no products to display</p>
+    @endforelse
+    @else
+      @foreach ($products as $product)
+        @include ('products.template-edit', ['products'=>$products])
+      @endforeach
+    @endif
+            
 @endsection

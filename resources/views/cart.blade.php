@@ -21,7 +21,7 @@
               <tr>
                <td>
                   <div class="row">
-                    <div class="col-sm-3"><img src="{{ asset('image/' .$details['imagename']) }}" width="130"/></div>
+                    <div class="col-sm-3"><img src="{{ asset('image/' .$details['imagename']) }}" width="150"/></div>
                   </div>
                 </td>
                 <td>

@@ -20,8 +20,8 @@
 
 .wrapper{
     
-    height:400px;
-    width:300px;
+    height:480px;
+    width:250px;
     padding:10px;
     margin:20px;
     border:2px solid black;
@@ -42,10 +42,13 @@ textarea{
 .select-product, 
 .delete-product, 
 .purchase-product, 
-.edit-product{
+.edit-product,
+.update-product,
+.add-product{
     border-radius:6px;
     color:white;
     background-color:#00003e;
+    width:100%;
     cursor:pointer;
 }
 
