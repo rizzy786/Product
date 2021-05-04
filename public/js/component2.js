@@ -90,22 +90,7 @@ async function updateProductByID(id) {
     var storage = document.getElementById('storage').value;
     var price = document.getElementById('price').value;
 
-/*
-    const formData = new FormData();
-    
-    formData.append('_method', 'PUT');
-    //data.append('producttype', producttype);
-    formData.append('title', title);
-    formData.append('screen_size', screen_size);
-    formData.append('processor', processor);
-    formData.append('storage', storage);
-    formData.append('price', price);
-    
-    let settings = {headers: {
-        'content-type': 'multipart/form-data',
-    } }
-    
-*/
+
     try{
         const response = await axios.put('/product/'+id,
             {producttype:producttype, title:title, screen_size:screen_size, processor:processor, storage:storage, price:price});
