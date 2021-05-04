@@ -82,23 +82,41 @@ async function quantityChange(id, value){
 }
 
 async function updateProductByID(id) {
+    
+    var producttype = document.getElementById('producttype').value;
     var title = document.getElementById('title').value;
-    var fname = document.getElementById('fname').value;
-    var sname = document.getElementById('sname').value;
-    var pages = document.getElementById('pages').value;
+    var screen_size = document.getElementById('screen_size').value;
+    var processor = document.getElementById('processor').value;
+    var storage = document.getElementById('storage').value;
     var price = document.getElementById('price').value;
 
-    //as sending the whole form up - this equates better to a put request
+/*
+    const formData = new FormData();
+    
+    formData.append('_method', 'PUT');
+    //data.append('producttype', producttype);
+    formData.append('title', title);
+    formData.append('screen_size', screen_size);
+    formData.append('processor', processor);
+    formData.append('storage', storage);
+    formData.append('price', price);
+    
+    let settings = {headers: {
+        'content-type': 'multipart/form-data',
+    } }
+    
+*/
     try{
-        const response = await axios.put('/product/'+id, {title:title, fname:fname, sname:sname, pages:pages, price:price});
+        const response = await axios.put('/product/'+id,
+            {producttype:producttype, title:title, screen_size:screen_size, processor:processor, storage:storage, price:price});
 //        if(response.data.msg==='success') {
 //            console.log("success");
-            window.location= "/products";
+            window.location= "/product";
 //        }
 //        else console.error("some error");
     }
     catch (error) {
-        console.error(error);
+       console.log(error);
     }
 }
 
@@ -123,8 +141,6 @@ async function addNewProduct() {
     var processor = document.getElementById('processor').value;
     var storage = document.getElementById('storage').value;
     var price = document.getElementById('price').value;
-    
-    console.log('a');
 
     if(!title ) title = " ";
     if(!price) price = 0;

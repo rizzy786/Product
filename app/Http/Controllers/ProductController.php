@@ -25,6 +25,19 @@ class ProductController extends Controller
         return view('products', ['products' => $products, 'edit'=> true]);
     }
     
+    public function update(Request $request, $id){
+        $product = Product::find($id);
+
+       	$product->product_name = $request->get('title');
+       	$product->product_screen_size= $request->get('screen_size');
+       	$product->product_processor = $request->get('processor');
+       	$product->product_storage = $request->get('storage');
+        $product->price = $request->get('price');
+          
+      $product->save();
+    }
+    
+    
     public function destroy($id){
         $product = Product::find($id)->delete();
     }
