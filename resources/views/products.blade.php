@@ -4,7 +4,7 @@
     @can('add-product')
             @if(Route::current()->getName()=='product-index')
             <div class = "wrapper">
-            <h4>Add new Product</h4><br>
+                <h4>Add new Product</h4><br>
                     <label for = "product">Product Type:</label>
                      <select id = "producttype" name = "product">
                        <option value = "1">Phone</option>
@@ -22,19 +22,19 @@
                     
             </div>
             @endif
-            @endcan
+    @endcan
 
     
-    @if(Route::current()->getName()=='product-index' || Route::current()->getName()=='product-show')
-    @forelse ($products as $product)
-      @include ('products.template', ['products'=>$products])
-    @empty
-    <p>There are no products to display</p>
-    @endforelse
-    @else
-      @foreach ($products as $product)
-        @include ('products.template-edit', ['products'=>$products])
-      @endforeach
-    @endif
-            
+        @if(Route::current()->getName()=='product-index' || Route::current()->getName()=='product-show')
+            @forelse ($products as $product)
+                @include ('products.show', ['products'=>$products])
+                @empty
+                <p>There are no products to display</p>
+            @endforelse
+          @else
+            @foreach ($products as $product)
+                @include ('products.show-edit', ['products'=>$products])
+            @endforeach
+        @endif
+                 
 @endsection
