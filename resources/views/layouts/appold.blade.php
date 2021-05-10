@@ -54,7 +54,10 @@
         </div>
     </br>
     
-    
+    <footer>
+        <p>Copyright <span>&#169;</span> 2021 Rizwan - All Rights Reserved. </p>
+    </footer>
+
     </body>
 </html>
 

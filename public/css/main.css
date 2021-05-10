@@ -183,3 +183,10 @@ form button[type=submit] {
     color:#fa755a;
 }
 
+/*footer*/
+footer {
+  background-color: #777;
+  padding: 5px;
+  text-align: center;
+  color: white;
+}
