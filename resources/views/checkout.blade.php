@@ -1,13 +1,13 @@
 @extends('layouts.appold')
-@section('content') 
 
-<script src="https://js.stripe.com/v3/"></script>
+@section('content') 
 
 <div>
 
     <h2>Billing Details</h2>
         <div class="checkout-section">
-         <form action="#" id="payment-form">
+         <form action="{{ route('checkout.store') }}" method = "POST" id="payment-form">
+         {{ csrf_field() }}
             <div class="form-group">
                 <label for="email">Email Address</label>
                 <input type="email" class="form-control" id="email" name="email" value="" >
@@ -33,7 +33,7 @@
                 </div>
           
         </div> <!-- end half-form -->
-
+    
         <div class="half-form">
             <div class="form-group">
                 <label for="postalcode">Postal Code</label>
@@ -57,10 +57,10 @@
                     Credit or debit card
                 </label>
         <div id="card-element">
-                    <!-- a Stripe Element will be inserted here. -->
+        <!-- a Stripe Element will be inserted here. -->
         </div>
 
-                    <!-- Used to display form errors -->
+        <!-- Used to display form errors -->
         <div id="card-errors" role="alert"></div>
         </div>
                     
@@ -143,7 +143,7 @@
 
             // Add an instance of the card Element into the `card-element` <div>
             card.mount('#card-element');
-                        // Handle real-time validation errors from the card Element.
+            // Handle real-time validation errors from the card Element.
             card.addEventListener('change', function(event) {
               var displayError = document.getElementById('card-errors');
               if (event.error) {
@@ -159,7 +159,15 @@
               event.preventDefault();
 
               // Disable the submit button to prevent repeated clicks
-              document.getElementById('complete-order').disabled = true;
+              //document.getElementById('complete-order').disabled = true;
+
+              var options = {
+                  name: document.getElementById('name_on_card'),
+                  address: document.getElementById('address'),
+                  city: document.getElementById('city'),
+                  postalcode: document.getElementById('postalcode')
+                  
+              }
 
               stripe.createToken(card, options).then(function(result) {
                 if (result.error) {
@@ -168,7 +176,7 @@
                   errorElement.textContent = result.error.message;
 
                   // Enable the submit button
-                  document.getElementById('complete-order').disabled = false;
+                  //document.getElementById('complete-order').disabled = false;
                 } else {
                   // Send the token to your server
                   stripeTokenHandler(result.token);

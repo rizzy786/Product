@@ -36,6 +36,7 @@ Route::post('/editcart', [CartController::class, 'editCart']);
 Route::delete('/cart/{id}', [CartController::class, 'destroy']);
 
 Route::get('/checkout', [CheckoutController::class, 'index']);
+Route::post('/checkout', [CheckoutController::class, 'store'])->name('checkout.store');
 
 Route::get('/product', [ProductController::class, 'index'])->name('product-index');
 Route::get('/product/{id}', [ProductController::class, 'show'])->name('product-show');
