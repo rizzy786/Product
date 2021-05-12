@@ -27,7 +27,7 @@ window.onload = function() {
         if (e.target.matches('button.cart')){
             window.location= "/cart";
         }
-        
+
         if (e.target.matches('button.purchase-product')){
             addToCart(e.target.value);
         }
@@ -47,13 +47,12 @@ async function addToCart(id) {
 //            window.location="/product/" +id;
 //        }
 //        else alert ("Error Purchasing Product");
-    
         }
         catch (error){
             console.error(error);
-        }       
+        }
     }
-    
+
  async function deleteFromCart(id){
       try{
         const response = await axios.delete('/cart/'+id, {id:id});
@@ -82,7 +81,7 @@ async function quantityChange(id, value){
 }
 
 async function updateProductByID(id) {
-    
+
     var producttype = document.getElementById('producttype').value;
     var title = document.getElementById('title').value;
     var screen_size = document.getElementById('screen_size').value;

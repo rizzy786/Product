@@ -1,18 +1,18 @@
 @extends('layouts.appold')
 
-@section('content') 
+@section('content')
 
 <div>
 
     <h2>Billing Details</h2>
         <div class="checkout-section">
-         <form action="{{ route('checkout.store') }}" method = "POST" id="payment-form">
+         <form action="{{ route('checkout.store') }}" method="post" id="payment-form">
          {{ csrf_field() }}
             <div class="form-group">
                 <label for="email">Email Address</label>
                 <input type="email" class="form-control" id="email" name="email" value="" >
-            
-    
+
+
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" class="form-control" id="name" name="name" value="" >
@@ -21,7 +21,7 @@
                 <label for="address">Address</label>
                 <input type="text" class="form-control" id="address" name="address" value="" >
             </div>
-    
+
             <div class="half-form">
                 <div class="form-group">
                     <label for="city">City</label>
@@ -31,9 +31,9 @@
                     <label for="county">County (optional)</label>
                     <input type="text" class="form-control" id="county" name="county" value="">
                 </div>
-          
+
         </div> <!-- end half-form -->
-    
+
         <div class="half-form">
             <div class="form-group">
                 <label for="postalcode">Postal Code</label>
@@ -63,13 +63,13 @@
         <!-- Used to display form errors -->
         <div id="card-errors" role="alert"></div>
         </div>
-                    
+
         <div class="spacer"></div>
                 <button type="submit" id="complete-order" class="btn btn-success btn-lg">Complete Order</button>
 
             </form>
         </div>
-        
+
             <div class="checkout-table-container">
                 <h2>Your Order</h2>
                 <div class="checkout-table">
@@ -93,10 +93,10 @@
                     <?php $yourtotal = $yourtotal + $details['quantity'] * $details['price']; ?>
             @endforeach
         @endif
-                    
+
                 </div> <!-- end checkout-table -->
 
-                    <div class="checkout-totals-right">                 
+                    <div class="checkout-totals-right">
                         <span class="checkout-totals-total">Total: £{{ $yourtotal }}</span>
 
                     </div>
@@ -105,7 +105,7 @@
 
         </div> <!-- end checkout-section -->
     </div>
-    
+
         <script src="https://js.braintreegateway.com/web/dropin/1.13.0/js/dropin.min.js"></script>
 
     <script>
@@ -159,24 +159,24 @@
               event.preventDefault();
 
               // Disable the submit button to prevent repeated clicks
-              //document.getElementById('complete-order').disabled = true;
+              document.getElementById('complete-order').disabled = true;
 
               var options = {
-                  name: document.getElementById('name_on_card'),
-                  address: document.getElementById('address'),
-                  city: document.getElementById('city'),
-                  postalcode: document.getElementById('postalcode')
-                  
+                  name: document.getElementById('name_on_card').value,
+                  address_line1: document.getElementById('address').value,
+                  address_city: document.getElementById('city').value,
+                  address_state: document.getElementById('county').value,
+                  address_zip: document.getElementById('postalcode').value
               }
 
-              stripe.createToken(card, options).then(function(result) {
+              stripe.createToken(card,options).then(function(result) {
                 if (result.error) {
                   // Inform the user if there was an error
                   var errorElement = document.getElementById('card-errors');
                   errorElement.textContent = result.error.message;
 
                   // Enable the submit button
-                  //document.getElementById('complete-order').disabled = false;
+                  document.getElementById('complete-order').disabled = false;
                 } else {
                   // Send the token to your server
                   stripeTokenHandler(result.token);
@@ -199,5 +199,5 @@
 
         })();
     </script>
- 
+
 @endsection
