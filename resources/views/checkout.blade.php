@@ -4,6 +4,25 @@
 
 <div>
 
+    @if(session()->has('success_message'))
+        <div class="spacer"></div>
+        <div class="alert alert-success">
+            {{ session()->get('success_message') }}
+        </div>
+    @endif
+
+    @if(count($errors) > 0)
+        <div class="spacer"></div>
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
+
     <h2>Billing Details</h2>
         <div class="checkout-section">
          <form action="{{ route('checkout.store') }}" method="post" id="payment-form">

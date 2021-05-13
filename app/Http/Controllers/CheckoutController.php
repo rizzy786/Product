@@ -32,7 +32,7 @@ class CheckoutController extends Controller
             ));
             session()->remove('cart');
 
-            return back()->with('success_message', 'Thank you! Your payment has been successful');
+            return back()->with('success_message', 'Thank you for your order! Your payment has been successful');
         }catch(Exception $e){
 
         }
