@@ -21,9 +21,9 @@
 }
 /*form for add new product*/
 .wrapper{
-    
+
     height:480px;
-    width:250px;
+    width:260px;
     padding:10px;
     margin:20px;
     border:2px solid black;
@@ -42,9 +42,9 @@ textarea{
 }
 
 /*buttons on each page*/
-.select-product, 
-.delete-product, 
-.purchase-product, 
+.select-product,
+.delete-product,
+.purchase-product,
 .edit-product,
 .update-product,
 .add-product{
@@ -92,7 +92,7 @@ form button[type=submit] {
 }
 
 .checkout-section .checkout-table-container {
-  margin-left: 124px;
+  margin-left: 100px;
 }
 
 .checkout-section h2 {
@@ -123,7 +123,7 @@ form button[type=submit] {
 }
 
 .checkout-section .checkout-table-row .checkout-table-img {
-  max-height: 60px;
+  max-height: 100px;
 }
 
 .checkout-section .checkout-table-row .checkout-table-description {
@@ -156,23 +156,24 @@ form button[type=submit] {
   font-weight: bold;
   font-size: 22px;
   line-height: 2.2;
+
 }
 
 .StripeElement{
     background-color:white;
     padding:16px 16px;
     border:1px solid;
-    
+
 }
 /*
 .StripeElement--focus {
     box-shadow: 0 1px 3px 0 #cfd7df;
-    
+
 }
 */
 .StripeElement--invalid {
     border-color:#fa755a;
-    
+
 }
 
 .StripeElement--webkit-autofill{

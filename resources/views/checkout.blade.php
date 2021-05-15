@@ -98,7 +98,7 @@
             @foreach(session('cart') as $id => $details)
                     <div class="checkout-table-row">
                         <div class="checkout-table-row-left">
-                            <img src="{{ asset('image/' .$details['imagename']) }}" alt="item" class="checkout-table-img">
+                            <img src="{{ asset('image/' .$details['imagename']) }}"  alt="item" class="checkout-table-img">
                             <div class="checkout-item-details">
                                 <div class="checkout-table-item">{{ $details['name'] }}</div>
                                 <div class="checkout-table-price">Price: £{{ $details['price'] }}</div>
@@ -109,14 +109,14 @@
                             <div class="checkout-table-quantity">{{ $details['quantity'] }}</div>
                         </div>
                     </div> <!-- end checkout-table-row -->
-                    <?php $yourtotal = $yourtotal + $details['quantity'] * $details['price']; ?>
+                    <?php $yourtotal = $yourtotal + $details['quantity'] * $details['price'];?>
             @endforeach
         @endif
 
                 </div> <!-- end checkout-table -->
 
                     <div class="checkout-totals-right">
-                        <span class="checkout-totals-total">Total: £{{ $yourtotal }}</span>
+                        <span class="checkout-totals-total"><b>Total: £{{ $yourtotal }}</b></span>
 
                     </div>
                 </div> <!-- end checkout-totals -->

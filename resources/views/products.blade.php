@@ -1,10 +1,14 @@
 @extends('layouts.appold')
-@section('content') 
+@section('content')
 
     @can('add-product')
             @if(Route::current()->getName()=='product-index')
             <div class = "wrapper">
                 <h4>Add new Product</h4><br>
+
+                <div class = "form-group">
+                    <input id="file" type="file" class="form-control"/>
+                </div>
                     <label for = "product">Product Type:</label>
                      <select id = "producttype" name = "product">
                        <option value = "1">Phone</option>
@@ -17,14 +21,14 @@
                      <input type = "text" class = "processor" id = "processor" placeholder = "Processor" name = "processor">
                      <input type = "text" class = "storage" id = "storage" placeholder = "Storage" name = "storage">
                      <input type = "text" class = "price" id = "price" placeholder = "Price" name = "price">
-                     
+
                     <button class = "add-product">ADD</button>
-                    
+
             </div>
             @endif
     @endcan
 
-    
+
         @if(Route::current()->getName()=='product-index' || Route::current()->getName()=='product-show')
             @forelse ($products as $product)
                 @include ('products.show', ['products'=>$products])
@@ -36,5 +40,5 @@
                 @include ('products.show-edit', ['products'=>$products])
             @endforeach
         @endif
-                 
+
 @endsection
