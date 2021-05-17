@@ -1,10 +1,10 @@
 <body>
     <div class = "item">
         <p id = "producttype" class = "type"><b>{{$product->productType->type}}</b></p>
-        <img src = "{{ asset('image/' . $product->imagename) }}" height="150px"/>
-        
+        <img id="img" src = "{{ asset('image/' . $product->imagename) }}" height="150px"/>
+
         <div class = "form-group">
-            <input id="file" type="file" class="form-control"/>
+            <input id="imagename" type="file" class="form-control"/>
         </div>
         <input type = "text" class = "title" id = "title" name = "title" value = "{{ $product->product_name }}" style="font-weight: bold">
         <input type = "text" class = "screen_size" id = "screen_size" name = "screen_size" value = "{{ $product->product_screen_size}}">

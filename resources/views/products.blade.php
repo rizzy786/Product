@@ -3,7 +3,8 @@
 
     @can('add-product')
             @if(Route::current()->getName()=='product-index')
-            <div class = "wrapper">
+            <div>
+            <div class = "item">
                 <h4>Admin Panel</h4>
                 <h4>Add new Product</h4><br>
 
@@ -27,7 +28,9 @@
                     <button class = "add-product">ADD</button>
 
             </div>
-            @endif
+            </div>
+
+                @endif
     @endcan
 
 

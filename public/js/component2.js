@@ -79,7 +79,7 @@ async function quantityChange(id, value){
 }
 
 async function updateProductByID(id) {
-
+    var imagename = document.getElementById('imagename').files[0].name;
     var producttype = document.getElementById('producttype').value;
     var title = document.getElementById('title').value;
     var screen_size = document.getElementById('screen_size').value;
@@ -90,7 +90,7 @@ async function updateProductByID(id) {
 
     try{
         const response = await axios.put('/product/'+id,
-            {producttype:producttype, title:title, screen_size:screen_size, processor:processor, storage:storage, price:price});
+            {imagename:imagename, producttype:producttype, title:title, screen_size:screen_size, processor:processor, storage:storage, price:price});
 //        if(response.data.msg==='success') {
 //            console.log("success");
             window.location= "/product";
