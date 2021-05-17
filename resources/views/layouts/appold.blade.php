@@ -14,7 +14,6 @@
 
     </head>
     <body>
-
        <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -35,12 +34,47 @@
            </ul>
         </div>
 
-     <div class="search-container">
-        <form action="" method="get" class="search-form">
-            <input type="text" name="query" id="query" class="search-box" placeholder="Search for products">
-            <i class="fa fa-search search icon"></i>
-        </form>
-     </div>
+
+           <div>
+<!--
+               <x-jet-dropdown align="right" width="48">
+                   <x-slot name="trigger">
+                   </x-slot>
+
+                   <x-slot name="content">
+-->
+               @if (Route::has('login'))
+               @auth
+                       <form method="POST" action="{{ route('logout') }}">
+                           @csrf
+
+                           <x-jet-dropdown-link href="{{ route('logout') }}"
+                                                onclick="event.preventDefault();
+                                                            this.closest('form').submit();">
+                               {{ Auth::user()->name }} ({{ __('Logout') }})
+                           </x-jet-dropdown-link>
+                       </form>
+                   @else
+                       <a href="{{ route('login') }}">Login</a>
+                       @if (Route::has('register'))
+                           <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+                   @endif
+                @endauth
+           @endif
+
+       <!--
+                   </x-slot>
+               </x-jet-dropdown>
+-->
+           </div>
+
+
+
+
+
+
+
+
     </nav>
 
    <!--
