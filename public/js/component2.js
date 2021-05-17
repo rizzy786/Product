@@ -21,9 +21,7 @@ window.onload = function() {
         if (e.target.matches('button.product')){
             window.location= "/product";
         }
-        if (e.target.matches('button.aboutus')){
-            window.location= "/aboutus";
-        }
+
         if (e.target.matches('button.cart')){
             window.location= "/cart";
         }
@@ -119,7 +117,7 @@ async function deleteProductByID(id) {
 }
 
 async function addNewProduct() {
-    //var imagename = document.getElementById('imagename').value;
+    var imagename = document.getElementById('imagename').files[0].name;
     var producttype =  document.getElementById('producttype').value;
     var title = document.getElementById('title').value;
     var screen_size = document.getElementById('screen_size').value;
@@ -132,7 +130,7 @@ async function addNewProduct() {
 
     try{
         const response = await axios.post('/product/create',
-            {/*imagename:imagename,*/ producttype:producttype, title:title, screen_size:screen_size, processor:processor, storage:storage,  price:price}
+            {imagename:imagename, producttype:producttype, title:title, screen_size:screen_size, processor:processor, storage:storage,  price:price}
 
         );
 //        if(response.data.msg==='success') {

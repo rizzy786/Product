@@ -4,11 +4,13 @@
     @can('add-product')
             @if(Route::current()->getName()=='product-index')
             <div class = "wrapper">
+                <h4>Admin Panel</h4>
                 <h4>Add new Product</h4><br>
 
                 <div class = "form-group">
-                    <input id="file" type="file" class="form-control"/>
+                    <input id="imagename" src= "{{ asset('image/') }}" type="file" class="form-control"/>
                 </div>
+
                     <label for = "product">Product Type:</label>
                      <select id = "producttype" name = "product">
                        <option value = "1">Phone</option>

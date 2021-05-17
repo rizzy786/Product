@@ -28,9 +28,7 @@
             <li class="nav-item">
                 <button style="background:none; border:none" class="nav-link product">Products</button>
             </li>
-            <li class="nav-item">
-                <button style="background:none; border:none" class="nav-link aboutus">About Us</button>
-            </li>
+
             <li class="nav-item">
                 <button style="background:none; border:none" class="nav-link cart">Cart</button>
             </li>
@@ -38,10 +36,10 @@
         </div>
 
      <div class="search-container">
-    <form action="/action_page.php">
-      <input type="text" placeholder="Search.." name="search">
-      <button type="submit"><i class="fa fa-search"></i></button>
-    </form>
+        <form action="" method="get" class="search-form">
+            <input type="text" name="query" id="query" class="search-box" placeholder="Search for products">
+            <i class="fa fa-search search icon"></i>
+        </form>
      </div>
     </nav>
 

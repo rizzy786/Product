@@ -44,7 +44,7 @@ class ProductController extends Controller
 
     public function store(Request $request){
 
-      //$imagename = $request->get('imagename');
+      $imagename = $request->get('imagename');
       $producttype = $request->get('producttype');
       $title = $request->get('title');
       $screen_size = $request->get('screen_size');
@@ -54,7 +54,7 @@ class ProductController extends Controller
 
 	  $product = new Product;
 
-      //$product->imagename = $imagename;
+      $product->imagename = $imagename;
 	  $product->product_type_id = $producttype;
    	  $product->product_name = $title;
    	  $product->product_screen_size= $screen_size;
@@ -62,5 +62,15 @@ class ProductController extends Controller
    	  $product->product_storage = $storage;
    	  $product->price = $price;
    	  $product->save();
+
+
     }
+    public function search (Request $request){
+        return view('search-results');
+    }
+
+
+
+
+
 }
