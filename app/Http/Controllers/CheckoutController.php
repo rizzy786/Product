@@ -18,17 +18,19 @@ class CheckoutController extends Controller
             if (session('cart')){
                 foreach (session('cart') as $id => $details) {
                     $amount = $amount + $details['price'];
+
                 }
             }
 
             $amount = $amount * 100;
+            $details = $details['name'];
 
             \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
             $charge = \Stripe\charge::create(array(
                 'amount' => $amount,
                 'currency' => 'GBP',
                 'source' => $request->stripeToken,
-                'description' => 'Order'
+                'description' => $details
             ));
             session()->remove('cart');
 
