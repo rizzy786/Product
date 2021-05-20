@@ -49,6 +49,46 @@
     cursor:pointer;
 }
 
+/*home page*/
+
+.presentation {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    min-height: 80vh;
+    align-items: center;
+}
+.introduction {
+    flex: 1;
+}
+.intro-text h1 {
+    font-size: 44px;
+    font-weight: 500;
+    background: linear-gradient(to right, #494964, #6f6f89);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.intro-text p {
+    margin-top: 5px;
+    font-size: 22px;
+    color: #585772;
+}
+
+.cta {
+    padding: 50px 0px 0px 0px;
+}
+
+.cta-add {
+    background: #c36cbb;
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 2px;
+    color: white;
+    margin: 30px 0px 0px 30px;
+}
+
 /*checkout page*/
 form .half-form {
   display: grid;
