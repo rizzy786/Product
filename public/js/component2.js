@@ -26,7 +26,7 @@ window.onload = function() {
             window.location= "/cart";
         }
 
-        if (e.target.matches('button.purchase-product')){
+        if (e.target.matches('button.purchase-product') || (e.target.matches('button.home-add-product'))){
             addToCart(e.target.value);
         }
         if (e.target.matches('button.delete-item')){

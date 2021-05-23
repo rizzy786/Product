@@ -38,7 +38,6 @@ class ProductController extends Controller
       $product->save();
     }
 
-
     public function destroy($id){
         $product = Product::find($id)->delete();
     }
@@ -64,14 +63,7 @@ class ProductController extends Controller
    	  $product->price = $price;
    	  $product->save();
 
-
     }
-    public function search (Request $request){
-        return view('search-results');
-    }
-
-
-
 
 
 }

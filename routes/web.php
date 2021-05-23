@@ -23,7 +23,7 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
+    return view('home');
 })->name('dashboard');
 
 Route::get('/home', [HomeController::class, 'index']);

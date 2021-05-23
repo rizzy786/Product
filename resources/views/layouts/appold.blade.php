@@ -14,7 +14,9 @@
 
     </head>
     <body>
-       <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+
+       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -47,11 +49,11 @@
                @auth
                        <form method="POST" action="{{ route('logout') }}">
                            @csrf
-
+                           {{ Auth::user()->name }}
                            <x-jet-dropdown-link href="{{ route('logout') }}"
                                                 onclick="event.preventDefault();
                                                             this.closest('form').submit();">
-                               {{ Auth::user()->name }} ({{ __('Logout') }})
+                               {{ __('Logout') }}
                            </x-jet-dropdown-link>
                        </form>
                    @else
@@ -65,16 +67,8 @@
        <!--
                    </x-slot>
                </x-jet-dropdown>
--->
+        -->
            </div>
-
-
-
-
-
-
-
-
     </nav>
 
    <!--

@@ -21,7 +21,6 @@ class CartController extends Controller
                     $value = $cart[$id]["quantity"];
                 }
 
-
       $product = Product::find($id);
 
             $cart[$id] = [
@@ -36,7 +35,6 @@ class CartController extends Controller
     public function addToCart($id){
         $product = Product::find($id);
         $cart = session()->get('cart');
-
         if(!$cart) {
             $cart = [
                 $id => [
