@@ -11,18 +11,18 @@
              <p><b>£{{ $product->price}}</b></p>
 
                 @if(Route::current()->getName()=='product-index')
-                        <button value="{{$product->id}}" class = "select-product">SELECT</button>
+                        <button value="{{$product->id}}" class = "btn btn-primary btn select-product">SELECT</button>
                         @can('delete-product')
-                        <button value="{{$product->id}}" class = "delete-product">DELETE</button>
+                        <button value="{{$product->id}}" class = "btn btn-primary btn delete-product">DELETE</button>
                         @endcan
                 @endif
 
                 @if(Route::current()->getName()=='product-show')
                     @can('purchase-product', $product)
-                        <button value="{{$product->id}}" class = "purchase-product">ADD TO CART</button>
+                        <button value="{{$product->id}}" class = "btn btn-primary btn purchase-product">ADD TO CART</button>
                     @endcan
                     @can('edit-product')
-                        <button value="{{$product->id}}" class = "edit-product">EDIT</button>
+                        <button value="{{$product->id}}" class = "btn btn-primary btn edit-product">EDIT</button>
                     @endcan
                 @endif
         </div>

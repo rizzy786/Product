@@ -25,7 +25,7 @@
                      <input type = "text" class = "storage" id = "storage" placeholder = "Storage" name = "storage">
                      <input type = "text" class = "price" id = "price" placeholder = "Price" name = "price">
 
-                    <button class = "add-product">ADD</button>
+                    <button class = "btn btn-primary btn add-product">ADD</button>
 
             </div>
             </div>

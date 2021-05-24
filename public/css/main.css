@@ -46,7 +46,7 @@
     color:white;
     background-color:#00003e;
     width:80%;
-    cursor:pointer;
+
 }
 
 /*home page*/
@@ -220,8 +220,8 @@ form button[type=submit] {
 
 /*footer*/
 footer {
-  background-color: #343a40;
+  background-color: #e3f2fd;
   padding: 5px;
   text-align: center;
-  color: white;
+  color: black;
 }
